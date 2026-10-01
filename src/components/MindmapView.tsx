@@ -25,7 +25,7 @@ interface MindmapViewProps {
   onShowWelcomeScreen?: () => void;
 }
 
-// 7 Distinct luxury color themes optimized for the elegant light background (#F7F2EA)
+// 8 Distinct luxury color themes optimized for the elegant light background (#F7F2EA)
 const BRANCH_THEMES: Record<string, {
   accentColor: string;
   borderColor: string;
@@ -159,6 +159,7 @@ export const MindmapView: React.FC<MindmapViewProps> = ({
     'branch-b2b': true,
     'branch-certs': true,
     'branch-network': true,
+    'branch-recruitment': true,
   });
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -195,6 +196,7 @@ export const MindmapView: React.FC<MindmapViewProps> = ({
         return <Waves className="w-4 h-4 animate-pulse" />;
       case 'products':
         return <Coffee className="w-4 h-4" />;
+      case 'recruitment':
       case 'b2b':
         return <Briefcase className="w-4 h-4" />;
       case 'certs':
@@ -337,7 +339,7 @@ export const MindmapView: React.FC<MindmapViewProps> = ({
           </div>
         </div>
 
-        {/* 7 First-Level Branches with Distinct Multi-Color Themes */}
+        {/* 8 First-Level Branches with Distinct Multi-Color Themes */}
         <div className="space-y-2.5 relative pl-3.5 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-emerald-500 before:via-cyan-500 before:via-rose-600 before:to-orange-500">
           {LOPHA_MINDMAP_TREE.children?.filter(matchesSearch).map((branch, branchIndex) => {
             const isExpanded = !!expandedNodes[branch.id];
@@ -487,7 +489,7 @@ export const MindmapView: React.FC<MindmapViewProps> = ({
           Cuộn độc lập • Nhấp nhánh để xem chi tiết
         </span>
         <span className="text-stone-500 font-mono text-[10px]">
-          7 Nhánh • 21 Mục
+          {LOPHA_MINDMAP_TREE.children?.length} Nhánh • {LOPHA_MINDMAP_TREE.children?.reduce((total, branch) => total + (branch.children?.length || 0), 0)} Mục
         </span>
       </div>
     </div>

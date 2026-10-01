@@ -2,7 +2,7 @@ export interface MindmapNode {
   id: string;
   label: string;
   shortDesc: string;
-  category: 'root' | 'legal' | 'philosophy' | 'tech' | 'products' | 'b2b' | 'certs' | 'network';
+  category: 'root' | 'legal' | 'philosophy' | 'tech' | 'products' | 'b2b' | 'certs' | 'network' | 'recruitment';
   iconName?: string;
   children?: MindmapNode[];
   badge?: string;

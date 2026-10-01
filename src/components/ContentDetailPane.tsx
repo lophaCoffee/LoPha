@@ -30,6 +30,7 @@ import {
 } from '../data/lophaData';
 import { CavitationSimulator } from './CavitationSimulator';
 import { Footer } from './Footer';
+import { RecruitmentView } from './RecruitmentView';
 
 interface ContentDetailPaneProps {
   selectedNodeId: string;
@@ -100,6 +101,7 @@ export const ContentDetailPane: React.FC<ContentDetailPaneProps> = ({
 
   // Determine section category from selectedNodeId
   const getActiveSection = () => {
+    if (selectedNodeId.includes('recruitment')) return 'recruitment';
     if (selectedNodeId.includes('legal')) return 'legal';
     if (selectedNodeId.includes('philo') || selectedNodeId.includes('philosophy')) return 'philosophy';
     if (selectedNodeId.includes('tech') || selectedNodeId.includes('cavitation')) return 'tech';
@@ -134,17 +136,18 @@ export const ContentDetailPane: React.FC<ContentDetailPaneProps> = ({
             {activeSection === 'b2b' && 'Giải Pháp Doanh Nghiệp B2B & HORECA'}
             {activeSection === 'certs' && 'Hệ Thống Tiêu Chuẩn Quốc Tế FDA & ISO'}
             {activeSection === 'network' && 'Hạ Tầng, Showroom & Kênh Liên Hệ'}
+            {activeSection === 'recruitment' && 'Tuyển Dụng – Gia Nhập Lopha'}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <button
+          {activeSection !== 'recruitment' && <button
             onClick={() => onOpenAiChat(`Tóm tắt các điểm cốt lõi về ${activeSection} của Lopha Coffee`)}
             className="px-3.5 py-1.5 rounded-lg bg-[#0D1B44] text-[#F0E5D5] hover:bg-[#773C1C] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#95D0E8]" />
             <span>Hỏi AI về mục này</span>
-          </button>
+          </button>}
         </div>
       </div>
 
@@ -216,7 +219,7 @@ export const ContentDetailPane: React.FC<ContentDetailPaneProps> = ({
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-base sm:text-lg font-bold text-[#773C1C] font-serif flex items-center gap-2">
                 <Layers className="w-5 h-5 text-[#B79372]" />
-                7 Trọng Tâm Chiến Lược Khảo Sát & Khám Phá
+                8 Mục Khám Phá Lopha Coffee
               </h3>
               <span className="text-xs text-[#773C1C]/70">Nhấp thẻ để xem mục tương ứng</span>
             </div>
@@ -230,6 +233,7 @@ export const ContentDetailPane: React.FC<ContentDetailPaneProps> = ({
                 { id: 'branch-b2b', title: '5. Giải Pháp B2B & HORECA', desc: 'Quán cafe, khách sạn, văn phòng & OEM Lâm Đồng', icon: Briefcase },
                 { id: 'branch-certs', title: '6. Chứng Nhận FDA & ISO', desc: 'FDA Mỹ, HACCP, ISO 22000, 9001, 14005, ATVSTP', icon: Award },
                 { id: 'branch-network', title: '7. Hạ Tầng & Showroom', desc: 'HQ Bình Thạnh, Nhà máy Lâm Đồng, Showrooms Q1, Q2, HN', icon: MapPin },
+                { id: 'branch-recruitment', title: '8. Tuyển Dụng', desc: 'Sales tư vấn khách hàng & Marketing hỗ trợ dự án', icon: Briefcase },
               ].map((item) => (
                 <div
                   key={item.id}
@@ -1076,6 +1080,8 @@ export const ContentDetailPane: React.FC<ContentDetailPaneProps> = ({
           </div>
         </div>
       )}
+
+      {activeSection === 'recruitment' && <RecruitmentView selectedNodeId={selectedNodeId} />}
 
       {/* Embedded Footer inside independent right scrollable pane */}
       <div className="mt-12 -mx-4 sm:-mx-6 lg:-mx-8 border-t border-[#B79372]/30">

@@ -108,6 +108,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToNode }) => {
                 { id: 'branch-b2b', label: 'Giải pháp quán cafe & HORECA' },
                 { id: 'branch-certs', label: 'Bộ chứng nhận FDA & ISO' },
                 { id: 'branch-network', label: 'Mạng lưới Showroom & Liên hệ' },
+                { id: 'branch-recruitment', label: 'Tuyển dụng Sales & Marketing' },
               ].map((item) => (
                 <li key={item.id}>
                   <button

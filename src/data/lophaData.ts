@@ -525,6 +525,27 @@ export const LOPHA_MINDMAP_TREE: MindmapNode = {
           category: 'network'
         }
       ]
+    },
+    {
+      id: 'branch-recruitment',
+      label: 'Tuyển Dụng – Gia Nhập Lopha',
+      shortDesc: 'Cơ hội Sales tư vấn khách hàng và Marketing hỗ trợ dự án',
+      category: 'recruitment',
+      badge: 'Tuyển Dụng',
+      children: [
+        {
+          id: 'recruitment-sales',
+          label: 'Sales – Tư Vấn Khách Hàng',
+          shortDesc: 'Gọi điện tìm hiểu khách hàng có quán chưa, nhu cầu cà phê và gợi ý dùng thử Lopha',
+          category: 'recruitment'
+        },
+        {
+          id: 'recruitment-marketing',
+          label: 'Marketing – Hỗ Trợ Dự Án',
+          shortDesc: 'Hỗ trợ bộ phận Marketing lên kế hoạch và triển khai các dự án',
+          category: 'recruitment'
+        }
+      ]
     }
   ]
 };

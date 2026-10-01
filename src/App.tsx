@@ -4,7 +4,7 @@ import { MindmapView } from './components/MindmapView';
 import { ContentDetailPane } from './components/ContentDetailPane';
 import { AiAgentChat } from './components/AiAgentChat';
 import { MindmapNode } from './types/lopha';
-import { Network, FileText, GripVertical } from 'lucide-react';
+import { Network, FileText, GripVertical, Briefcase } from 'lucide-react';
 
 export default function App() {
   // Screen state
@@ -101,6 +101,14 @@ export default function App() {
         <WelcomeScreen onEnter={() => setShowWelcome(false)} />
       )}
 
+      <nav aria-label="Điều hướng chính" className="flex shrink-0 items-center justify-between gap-3 border-b border-[#B79372]/30 bg-[#F0E5D5] px-4 py-2 sm:px-6">
+        <span className="text-sm font-bold text-[#0D1B44]">LOPHA COFFEE</span>
+        <div className="flex gap-1 sm:gap-2">
+          <button onClick={() => handleSelectNode('root-lopha')} aria-current={!selectedNodeId.includes('recruitment') ? 'page' : undefined} className={`rounded-lg px-3 py-2 text-xs sm:text-sm font-semibold transition-colors ${!selectedNodeId.includes('recruitment') ? 'bg-white text-[#773C1C]' : 'text-[#773C1C] hover:bg-white/60'}`}>Khám phá Lopha</button>
+          <button onClick={() => handleSelectNode('branch-recruitment')} aria-current={selectedNodeId.includes('recruitment') ? 'page' : undefined} className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs sm:text-sm font-semibold transition-colors ${selectedNodeId.includes('recruitment') ? 'bg-[#0D1B44] text-[#F0E5D5]' : 'text-[#0D1B44] hover:bg-white/60'}`}><Briefcase className="h-4 w-4" />Tuyển dụng</button>
+        </div>
+      </nav>
+
       {/* 2. TOP MOBILE TAB SWITCHER (VISIBLE ONLY ON SCREENS < 1024px) */}
       <div className="lg:hidden flex items-center bg-[#F0E5D5] border-b border-[#B79372]/30 p-2 text-xs font-semibold shrink-0">
         <button
@@ -112,7 +120,7 @@ export default function App() {
           }`}
         >
           <Network className="w-3.5 h-3.5" />
-          <span>Sơ Đồ Mindmap (7 Nhánh)</span>
+          <span>Sơ Đồ Mindmap (8 Nhánh)</span>
         </button>
 
         <button
@@ -131,7 +139,7 @@ export default function App() {
       {/* 3. MAIN SPLIT SCREEN: TWO INDEPENDENTLY SCROLLING PANES WITH RESIZER */}
       <div
         ref={splitContainerRef}
-        className="flex-1 flex flex-col lg:flex-row h-full max-w-full overflow-hidden relative bg-[#F7F2EA]"
+        className="flex-1 min-h-0 flex flex-col lg:flex-row max-w-full overflow-hidden relative bg-[#F7F2EA]"
       >
         {/* LEFT COLUMN: INDEPENDENT SCROLL MINDMAP */}
         <section 
