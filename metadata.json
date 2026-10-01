@@ -1,0 +1,6 @@
+{
+  "name": "Lopha Coffee - Tinh Khiết Nguyên Bản | Hồ Sơ Thương Hiệu & Công Nghệ Siêu Âm",
+  "description": "Báo cáo phân tích chuyên sâu thương hiệu Lopha Coffee thuộc Công ty Long Phan (2007). Công nghệ làm sạch sóng siêu âm Cavitation, mindmap tương tác và trợ lý AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
